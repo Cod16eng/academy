@@ -7,6 +7,8 @@
 
 
     <%=raw @post.post_desc %>
+<br>
+    <small class="text-primary">Created on: <%= @post.created_at.strftime("%A, %B %-d, %Y") %>, by: <%= @post.user.name%></small>
 
 <div class="clear-fix"><br></div>
 <div class="row">

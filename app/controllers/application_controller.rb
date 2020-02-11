@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  #before_action :require_user
-  #before_action :require_admin
+  before_action :require_user
+  before_action :require_admin
 
   helper_method :current_user, :logged_in?
 

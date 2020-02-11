@@ -5,6 +5,13 @@
 				<div class="card-body">
 					<h3 class="card-title text-center"><%= @user.name %></h3>
 					  <p>Email: <%= @user.email %></p>
+						<h5>User's articles </h5>
+						<ul class="list-group">
+							<% @user.posts.each do |post| %>
+
+							<li class="list-group-item"><%= link_to post.title, post_path(post) %></li>
+							<% end %>
+						</ul>
 				 </div>
 				 <div class="card-footer">
 						<%= link_to '<i class="fas fa-arrow-left"></i> Back to All Users'.html_safe, users_path, class: 'btn btn-outline-secondary btn-sm'  %>

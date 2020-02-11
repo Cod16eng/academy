@@ -56,7 +56,7 @@ class UsersController < ApplicationController
 		# List of common params
         list_params_allowed =[:username, :first_name, :last_name, :email, :password, :password_confirmation]
         # Add the params only for admin
-  		#list_params_allowed << [:admin, :not_paid] if current_user.admin?
+  		list_params_allowed << [:admin] if current_user.admin?
 		params.require(:user).permit(list_params_allowed)
 	end
  end
