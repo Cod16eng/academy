@@ -1,0 +1,27 @@
+<!-- FOOTER -->
+  <footer class="footer pt-2">
+    <div class="container">
+      <ul class="nav justify-content-center">
+        <% if (logged_in?) %>
+        <li class="nav-item">
+          <%= link_to current_user.username, user_path(current_user), class:"nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Logout", logout_path, method: :delete, class:"nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Articles", posts_path, class:"nav-link" %>
+        </li>
+        <% else %>
+        <li class="nav-item">
+          <%= link_to "Login", login_path, class:"nav-link" %>
+        </li>
+        <% end %>
+
+      </ul>
+
+      <p class="float-right"><a href="#">Back to top</a></p>
+      <p>&copy; 2016 - Ascheri&Partners -All rights reserved  &middot;
+        <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    </div>
+  </footer>

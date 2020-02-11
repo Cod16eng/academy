@@ -1,0 +1,56 @@
+<%= render 'shared/errors', obj: @user %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 offset-md-2">
+			<div class="card">
+				<div class="card-body">
+					<h3 class="card-title text-center"><%= @user.new_record? ? "Add user" : "Edit your profile" %></h3>
+					<div class="row">
+						<%= form_for(@user, html: {class: "col-md-12" }) do |f| %>
+							<div class="form-group">
+								<%= f.label :first_name %>
+								<%= f.text_field :first_name, placeholder: "First Name", autofocus: true, class:"form-control" %>
+							</div>
+
+							<div class="form-group">
+								<%= f.label :last_name %>
+								<%= f.text_field :last_name, placeholder: "Last Name", autofocus: true, class:"form-control" %>
+							</div>
+
+							<div class="form-group">
+								<%= f.label :username %>
+								<%= f.text_field :username, placeholder: "Username", autofocus: true, class:"form-control" %>
+							</div>
+
+							<div class="form-group">
+								<%= f.label :Email %>
+								<%= f.email_field :email, placeholder: "Email Address", class:"form-control" %>
+							</div>
+
+							<div class="form-group">
+								<%= f.label :password %>
+								<%= f.password_field :password, placeholder: "Choose a Password", class:"form-control" %>
+							</div>
+
+							<div class="form-group">
+								<%= f.label "Confirm password" %>
+								<%= f.password_field :pasword_confirmation, placeholder: "Confirm your Password", class:"form-control" %>
+							</div>
+
+							<%# if current_user.admin? %>
+							<div class="form-check">
+								<%= f.check_box :admin, class:"form-check-input" %>
+								<%= f.label "Admin?" , class:"form-check-label" %>
+							</div>
+							<%# end %>
+							<div class="clearfix"><br /></div>
+							<div class="row justify-content-center">
+								<%= f.button(@user.new_record? ? 'Create User <i class="fas fa-paper-plane"></i>'.html_safe : 'Update profile <i class="fas fa-paper-plane"></i>'.html_safe, class: 'btn btn-primary') %>
+							</div>
+						<% end %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
