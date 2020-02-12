@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'contatti' => 'pages#contatti'
   resources :users
 
+  get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'

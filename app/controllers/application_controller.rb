@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :require_user
   before_action :require_admin
 
+
   helper_method :current_user, :logged_in?
 
   def current_user
@@ -15,15 +16,17 @@ class ApplicationController < ActionController::Base
 
   def require_user
     if !logged_in?
-      flash[:notice] = "You must be logged in to perform that action"
-      redirect_to login_path
+      flash[:error] = "You must be logged in to perform that action"
+      redirect_to login_path    
     end
   end
 
+
+
   def require_admin
     if logged_in? and !current_user.admin?
-      flash[:notice] = "Only Admins can perform that action"
-      redirect_to companies_path
+      flash[:error] = "Only Admins can perform that action"
+      redirect_to root_path
     end
   end
 end

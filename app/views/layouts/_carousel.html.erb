@@ -10,8 +10,13 @@
       <div  class="container ">
         <div class="carousel-caption">
           <h1>La formazione online diventa più facile</h1>
-          <p>Ascheri Academy è una piattaforma perfetta per condividere le conoscenze in linea. E’ un sistema di gestione della formazione e dell’informazione che rende l’aggiornamento professionale on-line più facile</p>
-          <p><a class="btn btn-lg btn-primary" href="#" role="button">Iscriviti alla Ascheri Academy</a></p>
+          <p>Ascheri Academy è una piattaforma perfetta per condividere le conoscenze in linea.
+            E’ un sistema di gestione della formazione e dell’informazione che rende l’aggiornamento professionale on-line più facile</p>
+          <% if logged_in? %>
+          <p><%= link_to '<i class="fas fa-book-open "></i> Iscriviti alla Ascheri Academy'.html_safe, root_path, class:"btn btn-lg btn-primary" %></p>
+          <% else %>
+          <p><%= link_to '<i class="fas fa-book-open "></i> Iscriviti alla Ascheri Academy'.html_safe, signup_path, class:"btn btn-lg btn-primary" %></p>
+          <% end %>
         </div>
       </div>
     </div>
@@ -19,9 +24,16 @@
       <img class="bd-placeholder-img" src="https://ascheri-academy.s3.eu-west-2.amazonaws.com/site_bg.jpg" width="100%" height="100%"/>
       <div class="container">
         <div class="carousel-caption ">
-          <h1>Another example headline.</h1>
-          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-          <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+          <h1>Inizia a comunicare</h1>
+          <p>Comunicare è condividere, mettere qualcosa in comune con gli altri.
+            L’atto della comunicazione ha lo scopo di trasmettere agli altri informazioni e messaggi. Non è possibile non comunicare.
+            La relazione tra chi parla e chi ascolta è bilaterale in quanto entrambi si relazionano al messaggio.
+            Comincia a relazionare o ad ascoltare, interagisci, apprendi e trasmetti nozioni; in una parola: comunica.</p>
+          <% if logged_in? %>
+          <p><%= link_to '<i class="fas fa-book-open "></i> Iscriviti alla Ascheri Academy'.html_safe, root_path, class:"btn btn-lg btn-primary" %></p>
+          <% else %>
+          <p><%= link_to '<i class="fas fa-book-open "></i> Iscriviti alla Ascheri Academy'.html_safe, signup_path, class:"btn btn-lg btn-primary" %></p>
+          <% end %>
         </div>
       </div>
     </div>
@@ -29,9 +41,16 @@
       <img class="bd-placeholder-img" src="https://ascheri-academy.s3.eu-west-2.amazonaws.com/site_bg.jpg" width="100%" height="100%" />
       <div class="container">
         <div class="carousel-caption">
-          <h1>One more for good measure.</h1>
-          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-          <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+          <h1>Condividi la tua conoscenza online</h1>
+          <p>La conoscenza è più di una raccolta di informazioni raccolte da varie fonti.
+            La conoscenza non è soggettiva, non è peculiare per una o poche persone.
+            La conoscenza è universale e non può essere trattenuta, ma condivisa.
+            Con Ascheri Academy tocca a te, partecipa alla condivisione delle conoscenze on line.</p>
+          <% if logged_in? %>
+          <p><%= link_to '<i class="fas fa-book-open "></i> Iscriviti alla Ascheri Academy'.html_safe, root_path, class:"btn btn-lg btn-primary" %></p>
+          <% else %>
+          <p><%= link_to '<i class="fas fa-book-open "></i> Iscriviti alla Ascheri Academy'.html_safe, signup_path, class:"btn btn-lg btn-primary" %></p>
+          <% end %>
         </div>
       </div>
     </div>

@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+	skip_before_action :require_user, only: [:new, :create]
+	skip_before_action :require_admin, only: [:show, :edit, :update]
 	before_action :set_user, only: [:edit, :update, :show, :destroy]
 
 	def index
@@ -13,7 +15,7 @@ class UsersController < ApplicationController
 		@user = User.new(user_params)
 		if @user.save
 		  flash[:notice] = "User #{@user.name} added "
-		  redirect_to users_path
+		  redirect_to root_path
 		else
 		  render 'new'
 		end
@@ -56,7 +58,7 @@ class UsersController < ApplicationController
 		# List of common params
         list_params_allowed =[:username, :first_name, :last_name, :email, :password, :password_confirmation]
         # Add the params only for admin
-  		list_params_allowed << [:admin] if current_user.admin?
+  		list_params_allowed << [:admin] if logged_in? && current_user.admin?
 		params.require(:user).permit(list_params_allowed)
 	end
  end
