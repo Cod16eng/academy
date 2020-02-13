@@ -191,3 +191,9 @@
  .bg-card-head{
    background-color: #377 !important;
  }
+
+ .post-img {
+   border: 1px solid lightgrey !important;
+   border-radius: 5px;
+   padding: 5px !important;
+ }

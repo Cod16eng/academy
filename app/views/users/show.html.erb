@@ -14,7 +14,9 @@
 						</ul>
 				 </div>
 				 <div class="card-footer">
+					 <% if current_user.admin? %>
 						<%= link_to '<i class="fas fa-arrow-left"></i> Back to All Users'.html_safe, users_path, class: 'btn btn-outline-secondary btn-sm'  %>
+						<% end %>
 						<%= link_to '<i class="fas fa-arrow-left"></i> Edit profile'.html_safe, edit_user_path(@user), class: 'btn btn-outline-primary btn-sm float-right'  %>
 				 </div>
 			</div>

@@ -2,7 +2,7 @@
 <div class="clear-fix"><br></div>
 <div class="container text-justify">
   <% if @post.post_img.url%>
-    <%= image_tag @post.post_img.url, size: '300x200', class: "float-left mr-4" %>
+    <%= image_tag @post.post_img.url, size: '300x200', class: "float-left mr-4 post-img" %>
   <% end %>
 
 
@@ -12,14 +12,15 @@
 
 <div class="clear-fix"><br></div>
 
-<div class="row">
-  <div class="col-md-6 d-flex justify-content-center">
-    <%= link_to 'Back', notizie_path, class:"btn btn-outline-secondary" %>
+  <div class="row">
+    <div class="col-md-6 d-flex justify-content-center">
+      <%= link_to 'Back to articles', notizie_path, class:"btn btn-outline-secondary" %>
 
+    </div>
+    <% if current_user.admin? %>
+      <div class="col-md-6 d-flex justify-content-center">
+        <%= link_to 'Edit', edit_post_path(@post), class:"btn btn-outline-primary" %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="col-md-6 d-flex justify-content-center">
-    <%= link_to 'Edit', edit_post_path(@post), class:"btn btn-outline-primary" %>
-  </div>
-</div>
 </div>

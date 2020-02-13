@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :posts
+  
   root 'pages#home'
   get 'academy' => 'pages#academy'
   get 'corsi' => 'pages#corsi'
