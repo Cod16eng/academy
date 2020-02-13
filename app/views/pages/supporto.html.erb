@@ -1,2 +1,163 @@
-<h1>Pages#supporto</h1>
-<p>Find me in app/views/pages/supporto.html.erb</p>
+<div class="row">
+  <div class="col-8">
+    <div id="accordion">
+      <div class="card">
+        <div class="card-header btn text-left my-4 bg-card-h" id="headingOne">
+          <h5 class="mb-0">
+            <a class="text-col" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <i class="fas fa-minus-circle fa-lg"></i> Cosa sono i corsi Webinar e come si svolgono?
+            </a>
+          </h5>
+        </div>
+
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+          <div class="card-body text-justify">I corsi web-live sono lezioni che si svolgono in diretta. Dopo l’iscrizione al
+            webinar, l’iscritto riceve una comunicazione mail contenente il link di
+            accesso e le informazioni per la connessione. Nella data e nell’ora di inizio
+            del webinar, l’iscritto dovrà cliccare sul link di accesso. All’arrivo del
+            Relatore il webinar avrà inizio automaticamente.
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header btn text-left my-4 bg-card-h" id="headingTwo">
+          <h5 class="mb-0">
+            <a class="text-col collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              <i class="fas fa-plus-circle fa-lg"></i> Si può interagire con il Relatore durante il webinar?
+            </a>
+          </h5>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+          <div class="card-body text-justify">Sì. L’iscritto può cliccare sulla icona e “sollevare la
+            mano”. Il Relatore potrà aprire il microfono per far intervenire direttamente
+            l’iscritto al Webinar. È possibile inoltre inviare la propria domanda nella
+            finestra chat. Il Relatore a sua discrezionerisponderà subito o al termine della lezione.
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header btn text-left my-4 bg-card-h" id="headingThree">
+          <h5 class="mb-0">
+            <a class="text-col collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              <i class="fas fa-plus-circle fa-lg"></i> I Webinar sono accreditati?
+            </a>
+          </h5>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+          <div class="card-body text-justify">
+            Per ogni Webinar viene presentata la domanda di accreditamento ai fini della
+            formazione continuativa dei professionisti. L’accreditamento è a discrezione
+            dell’Organo Competente.Al termine della lezione l’iscritto dovrà rispondere
+            ai quesiti proposti. Dopo avere superato positivamente il Test l’iscritto
+            riceverà l’attestato di partecipazione.
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header btn text-left my-4 bg-card-h" id="headingFour">
+          <h5 class="mb-0">
+            <a class="text-col collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+              <i class="fas fa-plus-circle fa-lg"></i> Dove posso trovare gli attestati di partecipazione al webinar?
+            </a>
+          </h5>
+        </div>
+        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+          <div class="card-body text-justify">
+            Il nostro team di Asheri Academy invierà l’attestato di partecipazione
+            tramite e-mail nei giorni successivi al completamento del webinar.
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header btn text-left my-4 bg-card-h" id="headingFive">
+          <h5 class="mb-0">
+            <a class="text-col collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+              <i class="fas fa-plus-circle fa-lg"></i> Non riesco a sentire cosa devo fare?
+            </a>
+          </h5>
+        </div>
+        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+          <div class="card-body text-justify">
+            Verificare l’impostazione audio facendo clic su Impostazioni nel riquadro
+            Audio del Pannello di controllo. In alternativa, fare clic con il pulsante
+            destro del mouse sull’icona con la margherita di GoToTraining
+            <%= image_tag("https://www.gotomeeting.com/-/media/project/global/daisy-gototraining-g2m.svg?la=en-GB&hash=99E6AAA90F564CB389B839F581784637", height: '30', width: '30') %>
+            dall’area di notifica e selezionare Preferenze > Audio. Verificare se si sta utilizzando un
+            dispositivo audio appropriato. Fare clic su Riproduci audio per verificare
+            l’ascolto dell’audio dagli altoparlanti. Parlare davanti al microfono per
+            verificare l’impostazione dell’audio.
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header btn text-left my-4 bg-card-h" id="headingSix">
+          <h5 class="mb-0">
+            <a class="text-col collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+              <i class="fas fa-plus-circle fa-lg"></i> Non riesco a vedere il video, cosa devo fare?
+            </a>
+          </h5>
+        </div>
+        <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+          <div class="card-body text-justify">L’applicazione GoToTraining potrebbe essere
+            ridotta a icona o nascosta dietro le finestre di altre applicazioni. Cercare
+            l’icona con la margherita GoToTraining sulla barra degli strumenti (Windows)
+            o sulla barra Dock (Mac) nella parte inferiore dello schermo, quindi
+            selezionarla per espandere il Visualizzatore e il Pannello di controllo e
+            vedere la riunione in corso.
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header btn text-left my-4 bg-card-h" id="headingSeven">
+          <h5 class="mb-0">
+            <a class="text-col collapsed" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+              <i class="fas fa-plus-circle fa-lg"></i> Come avviene il pagamento del webinar?
+            </a>
+          </h5>
+        </div>
+        <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordion">
+          <div class="card-body text-justify">Sul sito internet www.ascheri.academy alla
+            pagina dedicata al webinar l’iscritto c’è una sezione appositamente dedicata
+            al pagamento.I sistemi di pagamento sono: paypal / bonifico bancario / carta
+            di credito.
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header btn text-left my-4 bg-card-h" id="headingEight">
+          <h5 class="mb-0">
+            <a class="text-col collapsed" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+              <i class="fas fa-plus-circle fa-lg"></i> Se non riesco a seguire il Webinar perdo il corso?
+            </a>
+          </h5>
+        </div>
+        <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordion">
+          <div class="card-body text-justify">Il webinar viene registrato. All’iscritto
+            verrà inviata una mail con il link per rivedere la registrazione e verranno
+            inviati anche tutti i materiali relativi al corso.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="card">
+      <div class="card-header bg-card-head text-white">Altre Domande?</div>
+      <div class="card-body text-center">
+          <%= mail_to "info@ascheri.academy", "Invia", subject: "Domande Supporto Ascheri Academy", class:"btn btn-primary btn-sm" %>
+      </div>
+    </div><br>
+    <div class="card">
+      <div class="card-header bg-card-head text-white">Scarica la guida per il GoToTraining</div>
+      <div class="card-body text-center">
+          <%= link_to "Guida GoToTraining", "https://ascheri-academy.s3.eu-west-2.amazonaws.com/GoToTraining-Supporto.pdf", class:"btn btn-primary btn-sm" %>
+      </div>
+    </div><br>
+    <div class="card">
+      <div class="card-header bg-card-head text-white">Guida video per il GoToTraining</div>
+      <div class="card-body text-center">
+          <%#= mail_to "info@ascheri.academy", "Invia", class:"btn btn-primary btn-sm" %>
+      </div>
+    </div>
+  </div>
+</div>

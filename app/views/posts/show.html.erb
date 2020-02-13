@@ -6,7 +6,7 @@
   <% end %>
 
 
-    <%=raw @post.post_desc %>
+    <%= sanitize(@post.post_desc) %>
 <br>
     <small class="text-primary">Created on: <%= @post.created_at.strftime("%A, %B %-d, %Y") %>, by: <%= @post.user.name%></small>
 

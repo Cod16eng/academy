@@ -18,3 +18,22 @@
 //= require trix
 //= require bootstrap-sprockets
 //= require_tree .
+
+$(document).on('turbolinks:load', function() {
+            $('.collapse')
+                .on('show.bs.collapse', function() {
+                    $(this)
+                        .parent()
+                        .find(".fa-plus-circle")
+                        .removeClass("fa-plus-circle")
+                        .addClass("fa-minus-circle");
+                })
+                .on('hidden.bs.collapse', function() {
+                    $(this)
+                        .parent()
+                        .find(".fa-minus-circle")
+                        .removeClass("fa-minus-circle")
+                        .addClass("fa-plus-circle");
+
+                });
+        });

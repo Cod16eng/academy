@@ -15,7 +15,17 @@
    <% if current_page?(root_path) %>
      <%= render "layouts/carousel" %>
    <% end %>
+   <% if  (current_page?(academy_path) ||
+   current_page?(corsi_path) || current_page?(notizie_path) ||
+   current_page?(supporto_path) || current_page?(contatti_path)) %>
+     <div class="page-title">
+       <div class="container">
+       <p><%= @page_title %> - Ascheri Academy</p>
+       </div>
+     </div>
+   <% end %>
    <div class="container main">
+
      <%= flash_messages %>
      <%= yield %>
    </div>

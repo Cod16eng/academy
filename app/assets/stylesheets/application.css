@@ -111,7 +111,7 @@
       background-color: #377 !important;
   }
 
-  .nav-link {
+  .navbar .nav-link {
       border: 1px solid #377;
       border-radius: 5px !important;
       margin-right: 10px;
@@ -166,4 +166,28 @@
    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
  }
 
- 
+ .page-title {
+   width: 100%;
+   height: 80px;
+   background-image: url('https://ascheri-academy.s3.eu-west-2.amazonaws.com/site_bg.jpg');
+   background-repeat: no-repeat;
+   background-size:cover;
+   color: white;
+   margin-top:39px;
+   line-height: 70px; /* Vertically center the text there */
+   font-size: 2em;
+ }
+
+ .text-col{
+   color: #6e162c !important;
+   font-weight: bold;
+   font-size: 0.85em;
+ }
+
+ .bg-card-h {
+   background-color: #eee !important;
+ }
+
+ .bg-card-head{
+   background-color: #377 !important;
+ }

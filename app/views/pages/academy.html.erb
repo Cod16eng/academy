@@ -1,2 +1,89 @@
-<h1>Pages#academy</h1>
-<p>Find me in app/views/pages/academy.html.erb</p>
+<div class="row">
+  <div class="col-3 pr-0 ">
+    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+      <a class="nav-link active bg-light text-secondary" id="v-pills-intro-tab"
+                data-toggle="pill" href="#v-pills-intro" role="tab"
+                aria-controls="v-pills-intro" aria-selected="true">Introduzione</a>
+      <a class="nav-link bg-light text-secondary" id="v-pills-elearn-tab"
+                data-toggle="pill" href="#v-pills-elearn" role="tab"
+                aria-controls="v-pills-elearn" aria-selected="false">E-Learning</a>
+      <a class="nav-link bg-light text-secondary" id="v-pills-webinar-tab"
+                data-toggle="pill" href="#v-pills-webinar" role="tab"
+                aria-controls="v-pills-webinar" aria-selected="false">Webinar</a>
+      <a class="nav-link bg-light text-secondary" id="v-pills-master-tab"
+                data-toggle="pill" href="#v-pills-master" role="tab"
+                aria-controls="v-pills-master" aria-selected="false">Master</a>
+      <a class="nav-link bg-light text-secondary" id="v-pills-convegni-tab"
+                data-toggle="pill" href="#v-pills-convegni" role="tab"
+                aria-controls="v-pills-convegni" aria-selected="false">Convegni ed eventi di aggiornamento</a>
+    </div>
+  </div>
+  <div class="col-9 ">
+    <div class="tab-content " id="v-pills-tabContent">
+      <div class="tab-pane fade show active " id="v-pills-intro"
+      role="tabpanel" aria-labelledby="v-pills-intro-tab">
+      <h4>Da professionisti per professionisti</h4><br>
+      <p class="text-justify">Per tutti i professionisti che intendono collaborare con noi è previsto un
+        programma di formazione. <br><br>La Ascheri Academy, coordinata da Guido Ascheri,
+        nasce dal gruppo di professionisti che collaborano alle attività dello
+        studio Ascheri & Partners di Londra, e da anni di esperienza nella organizzazione
+        di eventi di formazione professionale. <br><br>Una parte della formazione è fornita
+        a mezzo dispense e circolari inviate via Internet, è prevista la possibilità
+        di interagire con il tutor.</p>
+        <p><%= link_to '<i class="fas fa-book-open "></i> Iscriviti alla Ascheri Academy'.html_safe,
+          signup_path, class:"btn btn-sm btn-primary" %></p>
+      </div>
+      <div class="tab-pane fade" id="v-pills-elearn"
+      role="tabpanel" aria-labelledby="v-pills-elearn-tab">
+      <h4>Videocorsi online, preparati dai nostri docenti</h4><br>
+      <p class="text-justify">I video E-Learning di Ascheri Academy sono tenuti da
+        professionisti specializzati ed affrontano diverse aree tematiche.<br><br>
+        Il partecipante potra’ assistere ad una video lezione registrata previa
+        iscrizione al nostro sito web. <br><br>Dopo la lezione, l’iscritto potra’ scaricare
+        il materiale didattico messo a disposizone dal relatore o richiedere sessioni
+        private per pareri specialistici.</p>
+        <p><%= link_to '<i class="fas fa-book-open "></i> Iscriviti alla Ascheri Academy'.html_safe,
+          signup_path, class:"btn btn-sm btn-primary" %></p>
+      </div>
+      <div class="tab-pane fade" id="v-pills-webinar"
+      role="tabpanel" aria-labelledby="v-pills-webinar-tab">
+      <h4>Webinar, seminari online in teleconferenza</h4><br>
+      <p class="text-justify">Crediamo che la formazione debba seguire l’evoluzione
+        della tecnologia anche attraverso l’utilizzo di moderni sistemi che permettono
+        al professionista di formarsi, evitando inutili perdite di tempo e denaro per
+        gli spostamenti. <br><br>Con i corsi in diretta live di Ascheri Academy, il partecipante
+        ha la possibilita’ di seguire il corso dal proprio studio utilizzando  il
+        computer e/o smartphone. Non si tratta di video registrazioni, ma di sessioni
+        tenute in diretta dal relatore. L’iscritto potra’ interagire attivamente facendo
+         domande al Relatore sia per iscritto, utilizzando una apposita chat, sia tramite
+        video. <br><br>Durante il webinar verra’ messo a disposizone  dell’iscritto il materiale
+         informativo, che potra’ essere scaricato al termine del corso. Per visionare la
+        demo sull’utilizzo della piattaforma vedi qui</p>
+        <p><%= link_to '<i class="fas fa-book-open "></i> Iscriviti alla Ascheri Academy'.html_safe,
+          signup_path, class:"btn btn-sm btn-primary" %></p>
+      </div>
+      <div class="tab-pane fade" id="v-pills-master"
+      role="tabpanel" aria-labelledby="v-pills-master-tab">
+      <h4>Master online e on-site</h4><br>
+      <p class="text-justify">Ascheri Academy  organizza dei Master e/o Mini Master
+        che si tengono sia a Londra che in Italia. I Master affrontano diverse
+        tematiche, con particolare attenzione all’area Internazionale. <br><br>L’iscritto
+        potra’ scegliere di partecipare al Master o direttamente in aula o attraverso
+        la modalita’ webinar, coniugando le necessita’ formative alle proprie esigenze
+        di lavoro.</p>        
+      </div>
+      <div class="tab-pane fade" id="v-pills-convegni"
+      role="tabpanel" aria-labelledby="v-pills-convegni-tab">
+      <h4>Eventi, conversazioni di aggiornamento professionale</h4><br>
+      <p class="text-justify">Ogni anno Ascheri Academy organizza delle giornate formative
+        a Londra. <br><br>Ci piace definire queste giornate come “Conversazioni Professionali”
+        in quanto trattasi di incontri tra professionisti che gia’ collaborano o che
+        desiderano collaborare con la nostra struttura. <br><br>Pur essendo giornate formative,
+        tra i partecipanti  si creano sinergie e collaborazioni per uno scambio di idee e
+         di relazioni. Vedi la lista degli eventi</p>
+         <p><%= link_to '<i class="fas fa-book-open "></i> Iscriviti alla Ascheri Academy'.html_safe,
+           signup_path, class:"btn btn-sm btn-primary" %></p>
+      </div>
+    </div>
+  </div>
+</div>

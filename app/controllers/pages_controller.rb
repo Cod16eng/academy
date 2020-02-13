@@ -6,18 +6,23 @@ class PagesController < ApplicationController
   end
 
   def academy
+    @page_title = 'La Academy'
   end
 
   def corsi
+    @page_title = 'Corsi'
   end
 
   def notizie
+    @page_title = 'Ultime Notizie'
     @posts = Post.all.order('created_at DESC')
   end
 
   def supporto
+    @page_title = 'Supporto'
   end
 
   def contatti
+    @page_title = 'Contatti'
   end
 end
