@@ -1,4 +1,5 @@
 class Speaker < ApplicationRecord
+  mount_uploader :speaker_img, SpeakerUploader
   has_many :uploads
   has_many :webinars, through: :uploads
 

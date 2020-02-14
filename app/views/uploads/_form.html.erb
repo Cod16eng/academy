@@ -13,17 +13,17 @@
 
   <div class="field">
     <%= form.label :upload %>
-    <%= form.text_field :upload %>
+    <%= form.file_field :upload %>
   </div>
 
   <div class="field">
-    <%= form.label :webinar_id %>
-    <%= form.number_field :webinar_id %>
+    <%= form.label :webinar %>
+    <%= form.collection_select( :webinar_id, Webinar.all, :id, :title, prompt: true) %>
   </div>
 
   <div class="field">
-    <%= form.label :speaker_id %>
-    <%= form.number_field :speaker_id %>
+    <%= form.label :speaker %>
+    <%= form.collection_select( :speaker_id, Speaker.all, :id, :speaker_name, prompt: true) %>
   </div>
 
   <div class="actions">

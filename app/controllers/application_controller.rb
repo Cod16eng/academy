@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :require_admin
 
 
-  helper_method :current_user, :logged_in?
+  helper_method :current_user, :logged_in?, :page_name
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -21,6 +21,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def page_name
+ 		"#{controller_name} #{action_name}".titleize
+ 	end
 
 
   def require_admin

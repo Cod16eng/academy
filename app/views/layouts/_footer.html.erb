@@ -3,33 +3,33 @@
     <div class="container">
       <ul class="nav justify-content-center">
         <% if (logged_in?) %>
-        <li class="nav-item">
-          <%= link_to current_user.username, user_path(current_user), class:"nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Logout", logout_path, method: :delete, class:"nav-link" %>
-        </li>
-        <% if current_user.admin? %>
-        <li class="nav-item">
-          <%= link_to "Articles", posts_path, class:"nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Webinars", webinars_path, class:"nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Categories", categories_path, class:"nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Speakers", speakers_path, class:"nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Uploads", uploads_path, class:"nav-link" %>
-        </li>
-      <% end %>
+          <li class="nav-item">
+            <%= link_to current_user.username, user_path(current_user), class:"nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Logout", logout_path, method: :delete, class:"nav-link" %>
+          </li>
+              <% if current_user.admin? %>
+                <li class="nav-item">
+                  <%= link_to "Articles", posts_path, class:"nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "Webinars", webinars_path, class:"nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "Categories", categories_path, class:"nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "Speakers", speakers_path, class:"nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "Uploads", uploads_path, class:"nav-link" %>
+                </li>
+              <% end %>
         <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", login_path, class:"nav-link" %>
-        </li>
+          <li class="nav-item">
+            <%= link_to "Login", login_path, class:"nav-link" %>
+          </li>
         <% end %>
 
       </ul>

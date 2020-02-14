@@ -25,9 +25,10 @@ class WebinarsController < ApplicationController
   # POST /webinars.json
   def create
     @webinar = Webinar.new(webinar_params)
-
+    @webinar.user = current_user
     respond_to do |format|
       if @webinar.save
+
         format.html { redirect_to @webinar, notice: 'Webinar was successfully created.' }
         format.json { render :show, status: :created, location: @webinar }
       else
@@ -69,6 +70,6 @@ class WebinarsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def webinar_params
-      params.require(:webinar).permit(:title, :program, :date_from, :date_to, :category_id, :user_id)
+      params.require(:webinar).permit(:title, :program, :date_from, :date_to, :category_id, :user_id, speaker_ids: [])
     end
 end

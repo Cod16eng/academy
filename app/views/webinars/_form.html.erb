@@ -32,13 +32,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :category_id %>
-    <%= form.number_field :category_id %>
+    <%= form.label :category %>
+    <%= form.collection_select( :category_id, Category.all, :id, :category_name, prompt: true) %>
   </div>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id %>
+    <%= form.label :speaker %>
+    <%= form.collection_select( :speaker_ids, Speaker.all, :id, :speaker_name, {:prompt => "Please Select"}, {:multiple => true}) %>
   </div>
 
   <div class="actions">
