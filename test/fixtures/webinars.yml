@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  program: MyText
+  date_from: 2020-02-14 14:29:21
+  date_to: 2020-02-14 14:29:21
+  category_id: 1
+  user_id: 1
+
+two:
+  title: MyString
+  program: MyText
+  date_from: 2020-02-14 14:29:21
+  date_to: 2020-02-14 14:29:21
+  category_id: 1
+  user_id: 1

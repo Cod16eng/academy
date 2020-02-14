@@ -1,0 +1,47 @@
+<%= form_with(model: webinar, local: true) do |form| %>
+  <% if webinar.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(webinar.errors.count, "error") %> prohibited this webinar from being saved:</h2>
+
+      <ul>
+      <% webinar.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :program %>
+    <%= form.text_area :program %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_from %>
+    <%= form.datetime_select :date_from %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_to %>
+    <%= form.datetime_select :date_to %>
+  </div>
+
+  <div class="field">
+    <%= form.label :category_id %>
+    <%= form.number_field :category_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.number_field :user_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

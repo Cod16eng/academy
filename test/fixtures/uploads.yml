@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  upload: MyString
+  webinar_id: 1
+  speaker_id: 1
+
+two:
+  upload: MyString
+  webinar_id: 1
+  speaker_id: 1

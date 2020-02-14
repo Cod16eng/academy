@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :uploads
+  resources :speakers
+  resources :categories
+  resources :webinars
   resources :posts
   
   root 'pages#home'

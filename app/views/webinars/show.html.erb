@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @webinar.title %>
+</p>
+
+<p>
+  <strong>Program:</strong>
+  <%= @webinar.program %>
+</p>
+
+<p>
+  <strong>Date from:</strong>
+  <%= @webinar.date_from %>
+</p>
+
+<p>
+  <strong>Date to:</strong>
+  <%= @webinar.date_to %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @webinar.category_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @webinar.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_webinar_path(@webinar) %> |
+<%= link_to 'Back', webinars_path %>
