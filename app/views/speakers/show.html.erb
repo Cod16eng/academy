@@ -8,7 +8,7 @@
     <h4>  <%= @speaker.speaker_name %></h4>
     <h6><%= @speaker.profession_1 %> <br> <%= @speaker.profession_2 %></h6><br>
       <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <%= @speaker.description %>
+        <%= sanitize(@speaker.description) %>
       </p>
   </div>
 </div>

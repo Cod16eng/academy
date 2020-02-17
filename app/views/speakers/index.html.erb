@@ -1,4 +1,4 @@
-<% if current_user && current_user.admin %>
+<% if is_an_admin? %>
 <h1 class="text-center">Relatori<%= link_to 'New Speaker', new_speaker_path, class:"btn btn-outline-success float-right btn-sm" %></h1>
 <% else %>
 <h1 class="text-center">Relatori</h1>
