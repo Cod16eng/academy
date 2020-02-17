@@ -1,5 +1,7 @@
 class SpeakersController < ApplicationController
   before_action :set_speaker, only: [:show, :edit, :update, :destroy]
+  skip_before_action :require_user, only: [:index, :show]
+  skip_before_action :require_admin, only: [:index, :show]
 
   # GET /speakers
   # GET /speakers.json

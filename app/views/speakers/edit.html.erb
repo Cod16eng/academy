@@ -1,6 +1,12 @@
-<h1>Editing Speaker</h1>
-
 <%= render 'form', speaker: @speaker %>
 
-<%= link_to 'Show', @speaker %> |
-<%= link_to 'Back', speakers_path %>
+<div class="clear-fix"><br></div>
+
+<div class="row">
+  <div class="col-md-6 d-flex justify-content-center">
+    <%= link_to 'Back', speakers_path, class:"btn btn-outline-secondary" %>
+  </div>
+  <div class="col-md-6 d-flex justify-content-center">
+    <%= link_to 'View', @speaker, class:"btn btn-outline-primary" %>
+  </div>
+</div>
