@@ -13,7 +13,7 @@
   </div>
 </div>
 <div class="clear-fix"><br><br></div>
-<% if current_user && current_user.admin %>
+<% if is_an_admin? %>
   <div class="row">
     <div class="col-6 text-center"><%= link_to 'Back', speakers_path, class:" btn btn-outline-secondary btn-sm"%></div>
     <div class="col-6 text-center"><%= link_to 'Edit', edit_speaker_path(@speaker), class:" btn btn-outline-primary btn-sm" %></div>

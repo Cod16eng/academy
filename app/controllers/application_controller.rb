@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :require_admin
 
 
-  helper_method :current_user, :logged_in?, :page_name
+  helper_method :current_user, :logged_in?, :page_name, :is_an_admin?
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -25,6 +25,10 @@ class ApplicationController < ActionController::Base
  		"#{controller_name} #{action_name}".titleize
  	end
 
+  def is_an_admin?
+    if current_user and current_user.admin?
+    end
+  end
 
   def require_admin
     if logged_in? and !current_user.admin?
