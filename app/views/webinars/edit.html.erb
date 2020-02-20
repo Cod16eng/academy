@@ -1,6 +1,12 @@
-<h1>Editing Webinar</h1>
-
 <%= render 'form', webinar: @webinar %>
 
-<%= link_to 'Show', @webinar %> |
-<%= link_to 'Back', webinars_path %>
+<div class="clear-fix"><br></div>
+
+<div class="row">
+  <div class="col-md-6 d-flex justify-content-center">
+    <%= link_to 'Back', webinars_path, class:"btn btn-outline-secondary" %>
+  </div>
+  <div class="col-md-6 d-flex justify-content-center">
+    <%= link_to 'View',  @webinar, class:"btn btn-outline-primary" %>
+  </div>
+</div>

@@ -24,7 +24,7 @@
       <tr>
         <td><%= speaker.speaker_name %></td>
         <td><%= speaker.profession_1 %><br><%= speaker.profession_2 %></td>
-        <td><%=image_tag speaker.speaker_img.url(:thumb), size: "76x76" %></td>
+        <td><%=image_tag speaker.speaker_img.url(:thumb), size: "75x100" %></td>
         <td><%= link_to '<i class="fas fa-eye"></i> View'.html_safe, speaker, class:"btn btn-outline-primary btn-sm" %></td>
         <% if is_an_admin? %>
         <td><%= link_to '<i class="fas fa-user-edit"></i> Edit'.html_safe, edit_speaker_path(speaker), class:"btn btn-outline-success btn-sm" %></td>

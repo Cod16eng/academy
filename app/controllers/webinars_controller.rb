@@ -1,5 +1,7 @@
 class WebinarsController < ApplicationController
   before_action :set_webinar, only: [:show, :edit, :update, :destroy]
+  skip_before_action :require_admin, only: [:show]
+  skip_before_action :require_user, only: [:show, :archivio]
 
   # GET /webinars
   # GET /webinars.json
@@ -10,7 +12,10 @@ class WebinarsController < ApplicationController
   # GET /webinars/1
   # GET /webinars/1.json
   def show
+    @webinar_slides = @webinar.uploads.where.not(upload: [nil, ""])
+    @no_slides = @webinar.uploads.where(upload: [nil, ""])
   end
+
 
   # GET /webinars/new
   def new
@@ -62,6 +67,11 @@ class WebinarsController < ApplicationController
     end
   end
 
+  def archivio
+    @webinars = Webinar.passed
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_webinar
@@ -70,6 +80,6 @@ class WebinarsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def webinar_params
-      params.require(:webinar).permit(:title, :program, :date_from, :date_to, :category_id, :user_id, speaker_ids: [])
+      params.require(:webinar).permit(:title, :program, :date_from, :date_to, :web_link, :category_id, :user_id, speaker_ids: [])
     end
 end

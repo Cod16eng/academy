@@ -5,7 +5,9 @@
 				<div class="card-body">
 					<h3 class="card-title text-center"><%= @user.name %></h3>
 					  <p>Email: <%= @user.email %></p>
+						<% if is_an_admin? %>
 						<h5>User's articles </h5>
+						<% end %>
 						<ul class="list-group">
 							<% @user.posts.each do |post| %>
 

@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   skip_before_action :require_admin, only: [:show]
+  skip_before_action :require_user, only: [:show]
   # GET /posts
   # GET /posts.json
   def index

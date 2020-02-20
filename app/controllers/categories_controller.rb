@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
+  skip_before_action :require_user, only: [:show, :archivio]
 
   # GET /categories
   # GET /categories.json
@@ -10,6 +11,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
+    @passed_webinars = Webinar.current
   end
 
   # GET /categories/new
@@ -69,6 +71,6 @@ class CategoriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def category_params
-      params.require(:category).permit(:category_name)
+      params.require(:category).permit(:category_name, :category_img)
     end
 end

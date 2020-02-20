@@ -4,7 +4,7 @@
 		<div class="col-md-8 offset-md-2">
 			<div class="card">
 				<div class="card-body">
-					<h3 class="card-title text-center"><%= @user.new_record? ? "Add user" : "Edit your profile" %></h3>
+					<h3 class="card-title text-center"><%= @user.new_record? ? "Register" : "Edit your profile" %></h3>
 					<div class="row">
 						<%= form_for(@user, html: {class: "col-md-12" }) do |f| %>
 							<div class="form-group">

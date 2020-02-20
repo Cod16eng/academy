@@ -15,7 +15,7 @@
   <tbody>
     <% @uploads.each do |upload| %>
       <tr>
-        <td><a href="<%= upload.upload %>">Scarica le slide </a></td>
+        <td><a href="<%= upload.upload_url %>">Scarica le slide </a></td>
         <td><%= upload.webinar_id %></td>
         <td><%= upload.speaker_id %></td>
         <td><%= link_to 'Show', upload %></td>

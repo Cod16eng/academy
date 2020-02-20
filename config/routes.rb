@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   resources :speakers
   resources :categories
   resources :webinars
+  get 'archivio' => 'webinars#archivio'
   resources :posts
-  
+
   root 'pages#home'
   get 'academy' => 'pages#academy'
   get 'corsi' => 'pages#corsi'

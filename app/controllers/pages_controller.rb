@@ -11,6 +11,8 @@ class PagesController < ApplicationController
 
   def corsi
     @page_title = 'Corsi'
+    @categories = Category.all
+    @category = Category.first
   end
 
   def notizie

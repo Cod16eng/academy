@@ -17,6 +17,7 @@
 //= require popper
 //= require trix
 //= require bootstrap-sprockets
+
 //= require_tree .
 
 $(document).on('turbolinks:load', function() {
@@ -36,4 +37,5 @@ $(document).on('turbolinks:load', function() {
                         .addClass("fa-plus-circle");
 
                 });
+
         });

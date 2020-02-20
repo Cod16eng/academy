@@ -97,6 +97,8 @@ GEM
     ffi (1.12.2-java)
     ffi (1.12.2-x64-mingw32)
     ffi (1.12.2-x86-mingw32)
+    flatpickr_rails (1.1.0)
+      railties (>= 3.0)
     fog-aws (3.5.2)
       fog-core (~> 2.1)
       fog-json (~> 1.1)
@@ -289,6 +291,7 @@ DEPENDENCIES
   carrierwave
   chromedriver-helper
   coffee-rails (~> 4.2)
+  flatpickr_rails
   fog-aws
   font_awesome5_rails (~> 1.0)
   jbuilder (~> 2.5)

@@ -1,47 +1,57 @@
-<%= form_with(model: webinar, local: true) do |form| %>
-  <% if webinar.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(webinar.errors.count, "error") %> prohibited this webinar from being saved:</h2>
+<%= render 'shared/errors', obj: @webinar %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-body">
+					<h3 class="card-title text-center"><%= @webinar.new_record? ? "Add webinar" : "Edit webinar" %></h3>
+          <%= form_with(model: webinar, local: true) do |form| %>
 
-      <ul>
-      <% webinar.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+            <div class="form-group">
+              <%= form.label :title %>
+              <%= form.text_field :title, class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+              <%= form.label :program %>
+              <%= form.trix_editor :program, autofocus: true, data: { coffee: :delicious }%>
+            </div>
+
+            <div class="form-group">
+              <%= form.label :date_from, class:"" %><br>
+              <div class="form-inline">
+                <%= form.datetime_select :date_from, {},  class: "form-control mx-4" %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <%= form.label :date_to, class:"my-1 mr-4"%>
+              <div class="form-inline">
+                <%= form.datetime_select :date_to, {}, class: "form-control mb-3 mx-4" %>
+              </div>
+            </div>
+
+						<div class="form-group">
+              <%= form.label :web_link, 'GoToTraining link' %>
+              <%= form.text_field :web_link, class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+              <%= form.label :category %>
+              <%= form.collection_select( :category_id, Category.all, :id, :category_name, {:prompt => "Please Select"}, {:class => 'form-control'} ) %>
+            </div>
+
+            <div class="form-group">
+              <%= form.label :speaker %>
+              <%= form.collection_select( :speaker_ids, Speaker.all, :id, :speaker_name, {:prompt => "Please Select"}, {:multiple => true, :class => 'form-control'}) %>
+            </div>
+
+            <div class="row justify-content-center">
+              <%= form.button(@webinar.new_record? ? 'Create Webinar <i class="fas fa-paper-plane"></i>'.html_safe : 'Update Webinar <i class="fas fa-paper-plane"></i>'.html_safe, class: 'btn btn-primary') %>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
   </div>
-
-  <div class="field">
-    <%= form.label :program %>
-    <%= form.text_area :program %>
-  </div>
-
-  <div class="field">
-    <%= form.label :date_from %>
-    <%= form.datetime_select :date_from %>
-  </div>
-
-  <div class="field">
-    <%= form.label :date_to %>
-    <%= form.datetime_select :date_to %>
-  </div>
-
-  <div class="field">
-    <%= form.label :category %>
-    <%= form.collection_select( :category_id, Category.all, :id, :category_name, prompt: true) %>
-  </div>
-
-  <div class="field">
-    <%= form.label :speaker %>
-    <%= form.collection_select( :speaker_ids, Speaker.all, :id, :speaker_name, {:prompt => "Please Select"}, {:multiple => true}) %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

@@ -1,9 +1,66 @@
-<p id="notice"><%= notice %></p>
+<h4 align="center"><%= @category.category_name %></h4>
+<div class="clear-fix"><br></div>
+<%if @category.id == 1 %>
+  <div class="row">
+    <% @passed_webinars.each do |web| %>
+    <div class="col-6">
+      <div class="card ">
+        <div class="card-header text-center text-white bg-custom">
+          <h6><%= web.title %></h6>
+        </div>
+        <div class="card-body text-center">
+          <%= web.date_from.strftime('%A - %e - %B - %Y') %><br>
+          <strong>dalle ore</strong> <%= web.date_from.strftime('%H : %M') %>
+          <strong>alle ore</strong>  <%= web.date_to.strftime('%H : %M') %>
+          <strong>Italian Time</strong>
+        </div>
+        <div class="card-footer text-center speaker_name">
+          <%= link_to "Iscriviti", web.web_link, class:"btn btn-outline-primary btn-sm" %>
+        </div>
+      </div><br>
+    </div>
+    <% end %>
+  </div>
+<% else %>
+  <% if @category.webinars.current.any? %>
+    <div class="row">
+      <% @category.webinars.current.each do |web| %>
+      <div class="col-6">
+      <div class="card ">
+        <div class="card-header text-center text-white bg-custom">
+          <h6><%= web.title %></h6>
+        </div>
+        <div class="card-body text-center">
+          <%= web.date_from.strftime('%A - %e - %B - %Y') %><br>
+          <strong>dalle ore</strong> <%= web.date_from.strftime('%H : %M') %>
+          <strong>alle ore</strong>  <%= web.date_to.strftime('%H : %M') %>
+          <strong>Italian Time</strong>
+        </div>
+        <div class="card-footer text-center speaker_name">
+          <%= link_to "Iscriviti", web.web_link, class:"btn btn-outline-primary btn-sm" %>
+        </div>
+      </div>
+      </div>
+      <br>
+      <% end %>
+    </div>
+    <% else %>
+    <div class="text-center"> <p class="text-warning">There are no webinars </p></div>
+  <% end %>
+<% end %>
 
-<p>
-  <strong>Category name:</strong>
-  <%= @category.category_name %>
-</p>
-
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<div class="clear-fix"><br></div>
+<div class="row">
+  <% if is_an_admin? %>
+  <div class="col-md-6 d-flex justify-content-center">
+    <%= link_to 'Back to webinars', corsi_path, class:"btn btn-outline-secondary" %>
+  </div>
+  <div class="col-md-6 d-flex justify-content-center">
+    <%= link_to 'Edit Category', edit_category_path(@category), class:"btn btn-outline-primary" %>
+  </div>
+  <% else %>
+  <div class="col-md-12 d-flex justify-content-center">
+    <%= link_to 'Back to webinars', corsi_path, class:"btn btn-outline-secondary" %>
+  </div>
+  <% end %>
+</div>

@@ -11,7 +11,6 @@ skip_before_action :require_admin
 			session[:user_id] = user.id
 			flash[:notice] = "You have successfully logged in"
 			redirect_to root_path
-
 		else
 			flash.now[:error] = "Your login information is incorect"
 			render 'new'
@@ -23,4 +22,7 @@ skip_before_action :require_admin
 		flash[:notice] = "You have successfully logged out"
 		redirect_to root_path
 	end
+
+
+
 end

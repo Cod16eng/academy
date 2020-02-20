@@ -11,6 +11,7 @@
  * It is generally better to create a new file per style scope.
  *
  *= require trix
+
  *= require_tree .
  *= require_self
  */
@@ -196,5 +197,13 @@
    border: 1px solid lightgrey !important;
    border-radius: 5px;
    padding: 5px !important;
+
+ }
+ .category_name a{
+   color: white;
+   text-decoration: none;
+ }
+ .speaker_name a{
    
+   text-decoration: none;
  }

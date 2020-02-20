@@ -3,8 +3,10 @@ class ApplicationController < ActionController::Base
   before_action :require_user
   before_action :require_admin
 
+  helper_method :current_user, :logged_in?, :page_name,
+                :is_an_admin?, :webinar_passed
 
-  helper_method :current_user, :logged_in?, :page_name, :is_an_admin?
+
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -34,5 +36,10 @@ class ApplicationController < ActionController::Base
       flash[:error] = "Only Admins can perform that action"
       redirect_to root_path
     end
+  end
+
+  def webinar_passed
+    t = DateTime.now
+     t > @webinar.date_to    
   end
 end

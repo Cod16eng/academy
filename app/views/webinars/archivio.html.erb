@@ -1,0 +1,29 @@
+<h2 class="text-center">Archivio</h2>
+<div class="clear-fix"><br></div>
+<div class="row">
+  <% @webinars.each do |web| %>
+  <div class="col-6">
+    <div class="card" style="height:280px;" >
+      <div class="card-header text-center text-white bg-custom">
+        <h6><%= web.title %></h6>
+      </div>
+      <div class="card-body text-center">
+        <% web.speakers.each do |web_speak| %>
+           <p class="text-center"><strong>Relatore:</strong> <%= web_speak.speaker_name %></p>
+        <% end %>
+        <%= web.date_from.strftime('%A - %e - %B - %Y') %><br>
+        <strong>dalle ore</strong> <%= web.date_from.strftime('%H : %M') %>
+        <strong>alle ore</strong>  <%= web.date_to.strftime('%H : %M') %>
+        <strong>Italian Time</strong>
+      </div>
+      <div class="card-footer text-center speaker_name">
+        <%= link_to "Scheda", webinar_path(web), class:"btn btn-outline-primary btn-sm" %>
+        <%= link_to "Relatori", webinar_path(web), class:"btn btn-outline-primary btn-sm" %>
+        <%= link_to "Iscriviti", web.web_link, class:"btn btn-outline-primary btn-sm" %>
+      </div>
+    </div><br>
+  </div>
+  <% end %>
+</div>
+<div class="clear-fix"><br></div>
+<div class="text-center"><%= link_to "Back to Webinars", corsi_path, class: "btn btn-outline-secondary btn-sm"%></div>

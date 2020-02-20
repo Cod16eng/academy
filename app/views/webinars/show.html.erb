@@ -1,34 +1,59 @@
-<p id="notice"><%= notice %></p>
+<div class="card">
+  <div class="card-header bg-custom text-white">
+    <h2 class="card-title text-center"><%= @webinar.title.titleize %></<h2>
+    <h5 align="center" class="category_name">Category: <%=link_to @webinar.category.category_name, category_path(@webinar.category) %></h5>
+  </div>
+  <div class="card-body">
+    <% @webinar.speakers.each do |sp| %>
+    <h6 align="center" class="speaker_name">Relatore: <%= link_to sp.speaker_name, speaker_path(sp) %></h6>
+    <% end %>
+   <br>
+    <div class="row">
+      <div class="col-6">
+        <strong>Programma:</strong>
+        <%= raw @webinar.program.html_safe %>
+      </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @webinar.title %>
-</p>
+      <div class="col-6 text-center">
+        <strong>Data</strong><br>
+        <%= @webinar.date_from.strftime('%A - %e - %B - %Y') %><br><br>
+        <strong>dalle ore</strong> <%= @webinar.date_from.strftime('%H : %M') %>
+        <strong>alle ore</strong>  <%= @webinar.date_to.strftime('%H : %M') %><br>
+        <strong>Italian Time</strong>
+      </div>
+    </div>
+    <hr>
+    <% if !logged_in? %>
+      <p class="text-center text-danger">YOU NEED TO LOGIN OR REGISTER TO DOWNLOAD THE SLIDES  </p>
+      <p class="text-center"><%= link_to '<i class="fas fa-user-plus "></i> Registrati'.html_safe, signup_path, class:"btn btn-lg btn-primary btn-sm" %>
+      <%= link_to 'Login', login_path, class:"btn btn-lg btn-primary btn-sm" %></p>
+      <hr>
+    <% elsif !webinar_passed %>
+      <p class="text-center text-danger">É STATA PRESENTATA DOMANDA PER ACCREDITAMENTO AGLI ORGANI COMPETENTI AI FINI DELLA FORMAZIONE CONTINUA</p>
+      <p class="text-center"><%= link_to 'Iscriviti', @webinar.web_link, class:"btn btn-lg btn-primary btn-sm" %></p>
+      <hr>
 
-<p>
-  <strong>Program:</strong>
-  <%= @webinar.program %>
-</p>
+    <% elsif @webinar_slides.any? %>
+      <p class="text-center">
+        <% @webinar_slides.each do |slide| %>
+        <%= link_to "SCARICA LE SLIDE di #{slide.speaker.last_name}".upcase, slide.upload_url(slide), class:"btn btn-primary btn-sm"  %>
+        <% end %>
+      </p>
+      <hr>
+      <% else  %>
+        <p class="text-center text-warning">NO SLIDES UPLOADED YET</p>
+        <hr>
+    <% end %>
 
-<p>
-  <strong>Date from:</strong>
-  <%= @webinar.date_from %>
-</p>
 
-<p>
-  <strong>Date to:</strong>
-  <%= @webinar.date_to %>
-</p>
+  </div>
+  <div class="card-footer">
+     <% if is_an_admin? %>
+     <%= link_to '<i class="fas fa-arrow-left"></i> Back to Webinars'.html_safe, webinars_path, class: 'btn btn-outline-secondary btn-sm'  %>
 
-<p>
-  <strong>Category:</strong>
-  <%= @webinar.category_id %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @webinar.user_id %>
-</p>
-
-<%= link_to 'Edit', edit_webinar_path(@webinar) %> |
-<%= link_to 'Back', webinars_path %>
+     <%= link_to '<i class="fas fa-arrow-left"></i> Edit webinar'.html_safe, edit_webinar_path(@webinar), class: 'btn btn-outline-primary btn-sm float-right'  %>
+     <% else %>
+     <%= link_to '<i class="fas fa-arrow-left"></i> Back to Webinars'.html_safe, corsi_path, class: 'btn btn-outline-secondary btn-sm'  %>
+     <% end %>
+  </div>
+</div>
