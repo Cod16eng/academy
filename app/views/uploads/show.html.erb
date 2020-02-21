@@ -1,19 +1,27 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-8 offset-2">
+    <div class="card">
+      <div class="card-header bg-custom text-white text-center">
+        <%= @upload.webinar.title.upcase %>
+      </div>
+      <div class="card-body text-center">
+        <strong>Relatore:</strong> <%= @upload.speaker.speaker_name %>
+      </div>
+      <div class="card-footer text-center">
+        <%=link_to "View Slides", @upload.upload.url, class:"btn btn-outline-primary btn-sm"%>
+      </div>
+      <div class="card-footer text-center">
+        <div class="row">
+          <div class="col-6">
+            <%= link_to 'Back', uploads_path, class:"btn btn-outline-secondary btn-sm" %>
+          </div>
+          <div class="col-6">
+            <%= link_to 'Edit', edit_upload_path(@upload), class:"btn btn-outline-primary btn-sm" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <strong>Upload:</strong>
-  <%= @upload.upload %>
-</p>
 
-<p>
-  <strong>Webinar:</strong>
-  <%= @upload.webinar_id %>
-</p>
-
-<p>
-  <strong>Speaker:</strong>
-  <%= @upload.speaker_id %>
-</p>
-
-<%= link_to 'Edit', edit_upload_path(@upload) %> |
-<%= link_to 'Back', uploads_path %>
+</div>

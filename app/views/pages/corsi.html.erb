@@ -17,21 +17,24 @@
       <div class="tab-pane fade show active" id="v-pills-archivio"
       role="tabpanel" aria-labelledby="v-pills-archivio-tab">
       <h4 class="text-center">Da professionisti per professionisti</h4><br>
-      <div class="row">
-        <div class="col-8 offset-2">
           <div class="card ">
             <div class="card-header text-center text-white bg-custom">
               <h6>Webinar Archivio</h6>
             </div>
-            <div class="card-body text-center">
+            <div class="card-body row">
+              <div class="col-6">
+                <%= image_tag 'https://ascheri-academy.s3.eu-west-2.amazonaws.com/achivio.png', class:'img-fluid rounded' %>
+              </div>
+              <div class="col-6"><br>
+                <p class="text-center m-3">In questa sezione trovi il programma e le slide dei webinar gia’ trasmessi</p>
+                <p class="text-center speaker_name">
+                  <%= link_to "Vedi archivio", archivio_path, class:"btn btn-outline-primary btn-sm" %>
+                </p>
+              </div>
+            </div>
 
-            </div>
-            <div class="card-footer text-center speaker_name">
-              <%= link_to "Vedi archivio", archivio_path, class:"btn btn-outline-primary btn-sm" %>
-            </div>
         </div>
-        </div>
-      </div>
+      
       </div>
       <div class="tab-pane fade" id="v-pills-breviaria"
       role="tabpanel" aria-labelledby="v-pills-breviaria-tab">

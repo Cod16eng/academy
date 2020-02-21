@@ -1,32 +1,32 @@
+<%= render 'shared/errors', obj: @upload %>
+	<div class="row">
+		<div class="col-8 offset-2">
+			<div class="card">
+				<div class="card-body">
+					<h3 class="card-title text-center"><%= @upload.new_record? ? "Add upload" : "Edit upload" %></h3>
 <%= form_with(model: upload, local: true) do |form| %>
-  <% if upload.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(upload.errors.count, "error") %> prohibited this upload from being saved:</h2>
-
-      <ul>
-      <% upload.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :upload %>
-    <%= form.file_field :upload %>
-  </div>
-
-  <div class="field">
+  <div class="form-group">
     <%= form.label :webinar %>
-    <%= form.collection_select( :webinar_id, Webinar.all, :id, :title, prompt: true) %>
+    <%= form.collection_select( :webinar_id, Webinar.all, :id, :title, {:prompt => "Please Select"}, {:class => 'form-control'}) %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :speaker %>
-    <%= form.collection_select( :speaker_id, Speaker.all, :id, :speaker_name, prompt: true) %>
+    <%= form.collection_select( :speaker_id, Speaker.all, :id, :speaker_name, {:prompt => "Please Select"}, {:class => 'form-control'}) %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="custom-file">
+    <%= form.label :upload, class:"custom-file-label" %>
+    <%= form.file_field :upload, class:"custom-file-input" %>
   </div>
+
+  <div class="clearfix"><br /></div>
+
+  <div class="row justify-content-center">
+    <%= form.button(@upload.new_record? ? 'Create Upload <i class="fas fa-paper-plane"></i>'.html_safe : 'Update Upload <i class="fas fa-paper-plane"></i>'.html_safe, class: 'btn btn-primary') %>
+  </div>  
 <% end %>
+</div>
+</div>
+</div>
+</div>
