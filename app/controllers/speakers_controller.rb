@@ -6,7 +6,7 @@ class SpeakersController < ApplicationController
   # GET /speakers
   # GET /speakers.json
   def index
-    @speakers = Speaker.all
+    @speakers = Speaker.paginate(page: params[:page], per_page: 10).order('created_at DESC')
   end
 
   # GET /speakers/1

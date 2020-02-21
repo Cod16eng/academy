@@ -1,11 +1,12 @@
 <h1 align="center">Ultime notizie </h1>
 <div class="clear-fix"><br><br></div>
+<%= will_paginate(@posts, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center d-flex') %>
 <div class="card-columns ">
 
 <% @posts.each do |post|%>
 
   <div class="card">
-    <% if post.post_img.url%>
+    <% if post.post_img.url %>
     <%= image_tag post.post_img.url(:preview), class:"card-img-top" %>
     <% end %>
     <div class="card-body">
@@ -19,4 +20,6 @@
   </div>
 
 <% end %>
+
 </div>
+<%= will_paginate(@posts, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center d-flex') %>

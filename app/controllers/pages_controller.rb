@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :require_user
   skip_before_action :require_admin
   def home
-    @posts = Post.all.order('created_at DESC')
+    @posts = Post.paginate(page: params[:page], per_page: 10).order('created_at DESC')
   end
 
   def academy
@@ -17,7 +17,7 @@ class PagesController < ApplicationController
 
   def notizie
     @page_title = 'Ultime Notizie'
-    @posts = Post.all.order('created_at DESC')
+    @posts = Post.paginate(page: params[:page], per_page: 10).order('created_at DESC')
   end
 
   def supporto

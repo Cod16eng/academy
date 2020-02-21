@@ -9,12 +9,16 @@
           <h6><%= web.title %></h6>
         </div>
         <div class="card-body text-center">
+          <% web.speakers.each do |speaker| %>
+          <p class="speaker_name"><strong>Relatore:</strong> <%= link_to speaker.speaker_name, speaker_path(speaker) %></p>
+          <% end %>
           <%= web.date_from.strftime('%A - %e - %B - %Y') %><br>
           <strong>dalle ore</strong> <%= web.date_from.strftime('%H : %M') %>
           <strong>alle ore</strong>  <%= web.date_to.strftime('%H : %M') %>
           <strong>Italian Time</strong>
         </div>
         <div class="card-footer text-center speaker_name">
+          <%= link_to "View", webinar_path(web), class:"btn btn-outline-primary btn-sm" %>
           <%= link_to "Iscriviti", web.web_link, class:"btn btn-outline-primary btn-sm" %>
         </div>
       </div><br>
@@ -31,12 +35,16 @@
           <h6><%= web.title %></h6>
         </div>
         <div class="card-body text-center">
+          <% web.speakers.each do |speaker| %>
+          <p class="speaker_name"><strong>Relatore:</strong> <%= link_to speaker.speaker_name, speaker_path(speaker) %></p>
+          <% end %>
           <%= web.date_from.strftime('%A - %e - %B - %Y') %><br>
           <strong>dalle ore</strong> <%= web.date_from.strftime('%H : %M') %>
           <strong>alle ore</strong>  <%= web.date_to.strftime('%H : %M') %>
           <strong>Italian Time</strong>
         </div>
         <div class="card-footer text-center speaker_name">
+          <%= link_to "View", webinar_path(web), class:"btn btn-outline-primary btn-sm" %>
           <%= link_to "Iscriviti", web.web_link, class:"btn btn-outline-primary btn-sm" %>
         </div>
       </div>

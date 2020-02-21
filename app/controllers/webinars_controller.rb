@@ -6,7 +6,7 @@ class WebinarsController < ApplicationController
   # GET /webinars
   # GET /webinars.json
   def index
-    @webinars = Webinar.all
+    @webinars = Webinar.paginate(page: params[:page], per_page: 6).order('created_at DESC')
   end
 
   # GET /webinars/1
@@ -68,7 +68,7 @@ class WebinarsController < ApplicationController
   end
 
   def archivio
-    @webinars = Webinar.passed
+    @webinars = Webinar.passed.paginate :page => params[:page], :per_page => 6
 
   end
 

@@ -4,7 +4,7 @@ class UploadsController < ApplicationController
   # GET /uploads
   # GET /uploads.json
   def index
-    @uploads = Upload.all
+    @uploads = Upload.paginate(page: params[:page], per_page: 10).order('created_at DESC')
   end
 
   # GET /uploads/1

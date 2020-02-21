@@ -4,7 +4,7 @@
 <h1 class="text-center">Relatori</h1>
 <% end %>
 <div class="clear-fix"><br></div>
-
+<%= will_paginate(@speakers, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center d-flex') %>
 <table class="table">
   <thead>
     <tr>
@@ -36,3 +36,4 @@
 </table>
 
 <br>
+<%= will_paginate(@speakers, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center d-flex') %>

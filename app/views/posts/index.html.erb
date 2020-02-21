@@ -1,5 +1,6 @@
 <h1 align="center">Articles<%= link_to 'New Post', new_post_path, class:"btn btn-outline-success float-right btn-sm" %></h1>
 <div class="clear-fix"><br></div>
+<%= will_paginate(@posts, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center d-flex') %>
 <table class="table">
   <thead>
     <tr>
@@ -28,3 +29,4 @@
 </table>
 
 <br>
+<%= will_paginate(@posts, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center d-flex') %>

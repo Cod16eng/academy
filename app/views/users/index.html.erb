@@ -3,6 +3,7 @@
 	<div class="col-md-12 col-sm-6">
 		<h3 class="text-center">All Users</h3><div><p><%= link_to '<i class="fas fa-user-plus"></i> New User'.html_safe, new_user_path, class: 'btn btn-outline-primary btn-sm float-right' %><br><br></p></div>
 
+<%= will_paginate(@users, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center d-flex') %>
 <table class="table">
 	<thead class="text-center">
 	  <tr>
@@ -30,4 +31,5 @@
 	</tbody>
 </table>
 </div>
+<%= will_paginate(@users, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center d-flex') %>
 </div>

@@ -33,9 +33,7 @@ gem 'carrierwave'
 gem 'fog-aws'
 gem 'trix-rails', require: 'trix'
 gem 'mini_magick'
-
-
-
+gem 'bootstrap-will_paginate', '~> 1.0'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

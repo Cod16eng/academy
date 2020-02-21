@@ -1,5 +1,8 @@
 <h1 align="center">Categories<%= link_to 'New Category', new_category_path, class:"btn btn-outline-success float-right btn-sm" %></h1>
 <div class="clear-fix"><br></div>
+
+<%= will_paginate(@category, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center d-flex') %>
+
 <table class="table"
   <thead>
     <tr>
@@ -22,5 +25,6 @@
     <% end %>
   </tbody>
 </table>
+<%= will_paginate(@category, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center d-flex') %>
 
 <br>

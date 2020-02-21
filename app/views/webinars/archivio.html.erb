@@ -1,5 +1,6 @@
 <h2 class="text-center">Archivio</h2>
 <div class="clear-fix"><br></div>
+<%= will_paginate(@webinar, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center d-flex') %>
 <div class="row">
   <% @webinars.each do |web| %>
   <div class="col-6">
@@ -27,3 +28,5 @@
 </div>
 <div class="clear-fix"><br></div>
 <div class="text-center"><%= link_to "Back to Webinars", corsi_path, class: "btn btn-outline-secondary btn-sm"%></div>
+
+<%= will_paginate(@webinars, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center d-flex') %>
