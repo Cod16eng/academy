@@ -53,7 +53,7 @@
               <div class="card-header text-center text-white bg-custom">
                 <h6><%= @category.category_name %></h6>
               </div>
-              <% if @category.category_img.url.any? %>
+              <% if @category.category_img.url %>
               <%= image_tag @category.category_img.url(:preview), class:"card-img-top" %>
               <% end %>
               <div class="card-footer text-center speaker_name">
@@ -68,7 +68,7 @@
                 <div class="card-header text-center text-white bg-custom">
                   <h6><%= cat.category_name %></h6>
                 </div>
-                <% if cat.category_img.url.any? %>
+                <% if cat.category_img.url %>
                 <%= image_tag cat.category_img.url(:preview), class:"card-img-top" %>
                 <% end %>
                 <div class="card-footer text-center speaker_name">
