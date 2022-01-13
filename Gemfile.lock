@@ -197,8 +197,10 @@ GEM
     pg (1.2.3-x86-mingw32)
     popper_js (1.16.0)
     public_suffix (4.0.6)
-    puma (3.12.6)
-    puma (3.12.6-java)
+    puma (4.3.9)
+      nio4r (~> 2.0)
+    puma (4.3.9-java)
+      nio4r (~> 2.0)
     racc (1.6.0)
     racc (1.6.0-java)
     rack (2.2.3)
@@ -338,7 +340,7 @@ DEPENDENCIES
   mimemagic!
   mini_magick
   pg (>= 0.18, < 2.0)
-  puma (~> 3.11)
+  puma (~> 4.3)
   rails (~> 6.1)
   sass-rails (~> 5.0)
   selenium-webdriver
