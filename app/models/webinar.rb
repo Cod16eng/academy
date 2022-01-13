@@ -4,7 +4,7 @@ class Webinar < ApplicationRecord
   has_many :uploads
   has_many :speakers, through: :uploads
 
-  validates :title, presence: true, length: {minimum: 3, maximum: 50}
+  validates :title, presence: true, length: {minimum: 3, maximum: 250}
   validates :program, presence: true
 
   scope :current, -> { where 'date_to > ?', DateTime.now }
