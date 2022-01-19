@@ -8,10 +8,11 @@ Rails.application.routes.draw do
 
   root 'pages#home'
   get 'academy' => 'pages#academy'
-  get 'corsi' => 'pages#corsi'
+  get 'formazione' => 'pages#formazione'
   get 'notizie' => 'pages#notizie'
   get 'supporto' => 'pages#supporto'
   get 'contatti' => 'pages#contatti'
+  post 'lavora' => 'pages#lavora'
   resources :users
 
   get 'signup', to: 'users#new', as: 'signup'

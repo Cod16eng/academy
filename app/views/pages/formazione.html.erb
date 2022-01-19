@@ -1,0 +1,112 @@
+<div class="row">
+  <div class="col-3 pr-0 ">
+    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+      <a class="nav-link bg-light text-secondary <%= "active" unless params.has_key?(:tab) %>" id="v-pills-come-funziona-tab"
+                data-toggle="pill" href="#v-pills-come-funziona" role="tab"
+                aria-controls="v-pills-come-funziona" aria-selected="true">Come funziona</a>
+      <a class="nav-link bg-light text-secondary" id="v-pills-webinar-tab"
+                data-toggle="pill" href="#v-pills-webinar" role="tab"
+                aria-controls="v-pills-webinar" aria-selected="false">Webinar</a>
+      <a class="nav-link bg-light text-secondary <%= "active" if params[:tab] == 'v-pills-webinar2' %>" id="v-pills-webinar2-tab"
+                data-toggle="tab" href="#v-pills-webinar2" role="tab"
+                aria-controls="v-pills-webinar2" aria-selected="false">Webinar</a>
+    </div>
+  </div>
+  <div class="col-9 ">
+    <div class="tab-content" id="v-pills-tabContent">
+      <div class="tab-pane fade  <%= "active show" unless params.has_key?(:tab) %>" id="v-pills-come-funziona"
+       role="tabpanel" aria-labelledby="v-pills-come-funziona-tab">
+          <div class="card ">
+            <div class="card-body">
+              <h5 class="text-center">Corsi di formazione professionale gratuita per professionisti ed imprese</h5>
+              <br>
+              <h5><i class="fas fa-users fa-lg text-warning"></i> Corsi online in teleconferenza</h5>
+              <br>
+              <p class="text-indent">Il partecipante ha la possibilità di seguire il corso dal proprio studio utilizzando il computer e/o smartphone. L’iscritto potrà interagire attivamente facendo domande al Relatore sia per iscritto, utilizzando una apposita chat, sia a voce. In caso di domande successive all’evento, i partecipanti potranno contattare la Academy via mail.</p>
+              <br>
+              <h5><i class="fas fa-book fa-lg text-warning"></i> Corsi accreditati</h5>
+              <br>
+              <p class="text-indent">I corsi accreditati sono indicati nella pagina “Formazione” con la dicitura “Richiesta di accreditamento in corso”, oppure “Accreditato”. In caso di accreditamento da parte del CNF, per ottenere il certificato di partecipazione al corso l’iscritto dovrà rispondere positivamente ai quesiti proposti durante il Webinar. Ascheri Academy non sarà responsabile dell’eventuale mancato accreditamento dei Webinar, che è sempre a discrezione degli appositi Organi.</p>
+              <br>
+              <h5><i class="fas fa-comments fa-lg text-warning"></i> Materiale informativo gratuito</h5>
+              <br>
+              <p class="text-indent">Al termine di ogni corso, previa registrazione, il partecipante potrà scaricare il materiale informativo e rivedere le registrazioni sul nostro canale Youtube. I programmi, le registrazioni e i materiali relativi ai Webinar già trasmessi sono disponibili nella sezione “Archivio“. Le pubblicazioni basate sui Webinar sono invece disponibili nella sezione “Quaderni”.</p>
+              <br>
+              <h5><i class="fas fa-calendar-alt fa-lg text-warning"></i> Nuovi corsi ogni settimana</h5>
+              <br>
+              <p class="text-indent">L’offerta formativa di Ascheri Academy viene aggiornata regolarmente, con nuovi corsi, argomenti e docenti. Con la nostra newsletter è possibile ricevere informazioni sui corsi in programma ogni settimana e sulle più importanti novità fiscali e societarie internazionali. Non perderti le nuove offerte formative e iscriviti alla newsletter qui.</p>
+            </div>
+        </div>
+
+      </div>
+      <div class="tab-pane fade <%= "active show" if params[:tab] == 'v-pills-webinar' %>" id="v-pills-webinar"
+      role="tabpanel" aria-labelledby="v-pills-webinar-tab">
+      <h4 class="text-center">Webinars – 2022</h4><br>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Titolo</th>
+            <th style='width: 145px;'>Relatore</th>
+            <th style='width: 140px;'>Date</th>
+            <th style='width: 100px;'>Dettagli</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @webinars.each do |webinar| %>
+            <tr>
+              <td class="align-middle"><%= webinar.title %></td>
+              <td><% webinar.speakers.each do |speaker| %>
+                  <%= link_to speaker.speaker_name, speaker_path(speaker), class:'text-decoration-none'  %><br>
+                  <% end %></td>
+              <td class="text-center align-middle"><%= webinar.date_from.strftime('%e - %b - %Y') %><br>
+                alle <%= webinar.date_from.strftime('%H : %M') %>
+                      </td>
+              <td class="text-center align-middle"><%= link_to '<i class="fas fa-plus-circle fa-lg"></i> Info'.html_safe, webinar, class:'btn btn-outline-primary btn-sm' %></td>
+
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+<%= will_paginate(@webinars, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center d-flex', :tab => 'v-pills-webinar') %>
+      </div>
+      <div class="tab-pane fade <%= "active show" if params[:tab] == 'v-pills-webinar2' %>" id="v-pills-webinar2"
+      role="tabpanel" aria-labelledby="v-pills-webinar2-tab">
+      <h4 class="text-center">Webinars –2022</h4><br>
+      <div class="clear-fix"><br></div>
+        <div class="row ">
+          <div class="col-4">
+            <div class="card">
+              <div class="card-header text-center text-white bg-custom">
+                <h6><%= @category.category_name %></h6>
+              </div>
+              <% if @category.category_img.url %>
+              <%= image_tag @category.category_img.url(:preview), class:"card-img-top" %>
+              <% end %>
+              <div class="card-footer text-center speaker_name">
+                <%= link_to "In ordine di data", category_path(@category) %>
+              </div>
+            </div>
+          </div><br>
+
+            <% @categories.drop(1).each do |cat| %>
+              <div class="col-4">
+              <div class="card">
+                <div class="card-header text-center text-white bg-custom">
+                  <h6><%= cat.category_name %></h6>
+                </div>
+                <% if cat.category_img.url %>
+                <%= image_tag cat.category_img.url(:preview), class:"card-img-top" %>
+                <% end %>
+                <div class="card-footer text-center speaker_name">
+                  <%= link_to "Elenco Webinar", category_path(cat) %>
+                </div>
+              </div><br>
+              </div>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

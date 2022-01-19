@@ -204,6 +204,9 @@
    text-decoration: none;
  }
  .speaker_name a{
-   
+
    text-decoration: none;
  }
+.text-indent{
+  margin-left: 20px;
+}
