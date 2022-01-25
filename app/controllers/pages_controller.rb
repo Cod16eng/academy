@@ -14,7 +14,7 @@ class PagesController < ApplicationController
     @page_title = 'Formazione'
     @categories = Category.all
     @category = Category.first
-    @webinars = Webinar.paginate(page: params[:page], per_page: 6).order('date_from ASC')
+    @webinars = Webinar.paginate(page: params[:webinars_page], per_page: 8).order('date_from ASC')
   end
 
   def notizie
