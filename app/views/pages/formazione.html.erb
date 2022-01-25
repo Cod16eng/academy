@@ -4,12 +4,21 @@
       <a class="nav-link bg-light text-secondary <%= "active" unless params.has_key?(:tab) || params.has_key?(:webinars_page)%>" id="v-pills-come-funziona-tab"
                 data-toggle="pill" href="#v-pills-come-funziona" role="tab"
                 aria-controls="v-pills-come-funziona" aria-selected="true">Come funziona</a>
-      <a class="nav-link bg-light text-secondary" id="v-pills-webinar-tab"
+      <a class="nav-link bg-light text-secondary <%= "active" if params[:tab] == 'v-pills-webinar' %>" id="v-pills-webinar-tab"
                 data-toggle="pill" href="#v-pills-webinar" role="tab"
-                aria-controls="v-pills-webinar" aria-selected="false">Webinar</a>
-      <a class="nav-link bg-light text-secondary <%= "active" if params[:tab] == 'v-pills-webinar2' %>" id="v-pills-webinar2-tab"
-                data-toggle="tab" href="#v-pills-webinar2" role="tab"
-                aria-controls="v-pills-webinar2" aria-selected="false">Webinar</a>
+                aria-controls="v-pills-webinar" aria-selected="false">Webinars</a>
+      <a class="nav-link bg-light text-secondary <%= "active" if params[:tab] == 'v-pills-webcasts' %>" id="v-pills-webcasts-tab"
+                data-toggle="tab" href="#v-pills-webcasts" role="tab"
+                aria-controls="v-pills-webcasts" aria-selected="false">Webcasts</a>
+      <a class="nav-link bg-light text-secondary <%= "active" if params[:tab] == 'v-pills-masters' %>" id="v-pills-masters-tab"
+                data-toggle="tab" href="#v-pills-masters" role="tab"
+                aria-controls="v-pills-masters" aria-selected="false">Masters</a>
+      <a class="nav-link bg-light text-secondary <%= "active" if params[:tab] == 'v-pills-quaderni' %>" id="v-pills-quaderni-tab"
+                data-toggle="tab" href="#v-pills-quaderni" role="tab"
+                aria-controls="v-pills-quaderni" aria-selected="false">Quaderni</a>
+      <a class="nav-link bg-light text-secondary <%= "active" if params[:tab] == 'v-pills-archivio' %>" id="v-pills-archivio-tab"
+                data-toggle="tab" href="#v-pills-archivio" role="tab"
+                aria-controls="v-pills-archivio" aria-selected="false">Archivio</a>
     </div>
   </div>
   <div class="col-9 ">
@@ -37,76 +46,73 @@
               <p class="text-indent">L’offerta formativa di Ascheri Academy viene aggiornata regolarmente, con nuovi corsi, argomenti e docenti. Con la nostra newsletter è possibile ricevere informazioni sui corsi in programma ogni settimana e sulle più importanti novità fiscali e societarie internazionali. Non perderti le nuove offerte formative e iscriviti alla newsletter qui.</p>
             </div>
         </div>
-
       </div>
+
       <div class="tab-pane fade <%= "active show" if params[:tab] == 'v-pills-webinar' || params[:webinars_page]  %>" id="v-pills-webinar"
       role="tabpanel" aria-labelledby="v-pills-webinar-tab">
-      <h4 class="text-center">Webinars – 2022</h4><br>
-      <table class="table table-bordered table-hover"">
-        <thead>
-          <tr class="bg-light text-center">
-            <th>Titolo</th>
-            <th style='width: 145px;'>Relatore</th>
-            <th style='width: 140px;'>Date</th>
-            <th style='width: 100px;'>Dettagli</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <% @webinars.each do |webinar| %>
-            <tr>
-              <td class="align-middle"><%= webinar.title %></td>
-              <td><% webinar.speakers.each do |speaker| %>
-                  <%= link_to speaker.speaker_name, speaker_path(speaker), class:'text-decoration-none'  %><br>
-                  <% end %></td>
-              <td class="text-center align-middle"><%= webinar.date_from.strftime('%e - %b - %Y') %><br>
-                alle <%= webinar.date_from.strftime('%H : %M') %>
-                      </td>
-              <td class="text-center align-middle"><%= link_to '<i class="fas fa-plus-circle fa-lg"></i> Info'.html_safe, webinar, class:'btn btn-outline-primary btn-sm' %></td>
-
+        <h4 class="text-center">Webinars – 2022</h4><br>
+        <table class="table table-hover"">
+          <thead class="">
+            <tr class=" text-center">
+              <th class="bg-light ">Titolo</th>
+              <th class="bg-light" style='width: 145px;'>Relatore</th>
+              <th class="bg-light" style='width: 140px;'>Date</th>
+              <th class="bg-light" style='width: 100px;'>Dettagli</th>
+              <th class="bg-light" style='width: 100px;'><i class="fas fa-graduation-cap"></i></th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
+          </thead>
 
-<%= will_paginate(@webinars, :param_name => 'webinars_page', :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center d-flex', :tab => 'v-pills-webinar') %>
-      </div>
-      <div class="tab-pane fade <%= "active show" if params[:tab] == 'v-pills-webinar2' %>" id="v-pills-webinar2"
-      role="tabpanel" aria-labelledby="v-pills-webinar2-tab">
-      <h4 class="text-center">Webinars –2022</h4><br>
-      <div class="clear-fix"><br></div>
-        <div class="row ">
-          <div class="col-4">
-            <div class="card">
-              <div class="card-header text-center text-white bg-custom">
-                <h6><%= @category.category_name %></h6>
-              </div>
-              <% if @category.category_img.url %>
-              <%= image_tag @category.category_img.url(:preview), class:"card-img-top" %>
-              <% end %>
-              <div class="card-footer text-center speaker_name">
-                <%= link_to "In ordine di data", category_path(@category) %>
-              </div>
-            </div>
-          </div><br>
-
-            <% @categories.drop(1).each do |cat| %>
-              <div class="col-4">
-              <div class="card">
-                <div class="card-header text-center text-white bg-custom">
-                  <h6><%= cat.category_name %></h6>
-                </div>
-                <% if cat.category_img.url %>
-                <%= image_tag cat.category_img.url(:preview), class:"card-img-top" %>
-                <% end %>
-                <div class="card-footer text-center speaker_name">
-                  <%= link_to "Elenco Webinar", category_path(cat) %>
-                </div>
-              </div><br>
-              </div>
+          <tbody>
+            <% @webinars.each do |webinar| %>
+              <tr>
+                <td class="align-middle"><%= webinar.title %></td>
+                <td><% webinar.speakers.each do |speaker| %>
+                    <%= link_to speaker.speaker_name, speaker_path(speaker), class:'text-decoration-none'  %><br>
+                    <% end %></td>
+                <td class="text-center align-middle"><%= webinar.date_from.strftime('%e - %b - %Y') %><br>
+                  alle <%= webinar.date_from.strftime('%H : %M') %>
+                        </td>
+                <td class="text-center align-middle"><%= link_to '<i class="fas fa-plus-circle fa-lg"></i> Info'.html_safe, webinar_path(webinar, webinars_page: params[:webinars_page]), class:'btn btn-outline-primary btn-sm' %></td>
+                <td class="text-center align-middle"> <%= webinar.accreditated %></td>
+              </tr>
             <% end %>
+          </tbody>
+        </table>
+          <%= will_paginate(@webinars, :param_name => 'webinars_page', :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center d-flex', :tab => 'v-pills-webinar') %>
+      </div>
+
+      <div class="tab-pane fade <%= "active show" if params[:tab] == 'v-pills-webcasts' %>" id="v-pills-webcasts"
+      role="tabpanel" aria-labelledby="v-pills-webcasts-tab">
+        <h4 class="text-center">Webcasts – 2022</h4><br>
+          <div class="clear-fix"><br></div>
+            <div class="row ">
+
+            </div>
         </div>
+        <div class="tab-pane fade <%= "active show" if params[:tab] == 'v-pills-masters' %>" id="v-pills-masters"
+        role="tabpanel" aria-labelledby="v-pills-masters-tab">
+          <h4 class="text-center">Masters – 2022</h4><br>
+            <div class="clear-fix"><br></div>
+              <div class="row ">
+
+              </div>
+          </div>
+          <div class="tab-pane fade <%= "active show" if params[:tab] == 'v-pills-quaderni' %>" id="v-pills-quaderni"
+          role="tabpanel" aria-labelledby="v-pills-quaderni-tab">
+            <h4 class="text-center">Quaderni – 2022</h4><br>
+              <div class="clear-fix"><br></div>
+                <div class="row ">
+
+                </div>
+            </div>
+            <div class="tab-pane fade <%= "active show" if params[:tab] == 'v-pills-archivio' %>" id="v-pills-archivio"
+            role="tabpanel" aria-labelledby="v-pills-archivio-tab">
+              <h4 class="text-center">Archivio</h4><br>
+                <div class="clear-fix"><br></div>
+                  <div class="row ">
+
+                  </div>
+              </div>
       </div>
     </div>
   </div>
-</div>

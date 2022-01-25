@@ -53,7 +53,7 @@
 
      <%= link_to '<i class="fas fa-arrow-left"></i> Edit webinar'.html_safe, edit_webinar_path(@webinar), class: 'btn btn-outline-primary btn-sm float-right'  %>
      <% else %>
-     <%= link_to '<i class="fas fa-arrow-left"></i> Back to Webinars'.html_safe, corsi_path, class: 'btn btn-outline-secondary btn-sm'  %>
+     <%= link_to '<i class="fas fa-arrow-left"></i> Back to Webinars'.html_safe, formazione_path(tab: "v-pills-webinar", webinars_page: params[:webinars_page]), class: 'btn btn-outline-secondary btn-sm'  %>
      <% end %>
   </div>
 </div>

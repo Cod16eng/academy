@@ -80,6 +80,6 @@ class WebinarsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def webinar_params
-      params.require(:webinar).permit(:title, :program, :date_from, :date_to, :web_link, :category_id, :user_id, speaker_ids: [])
+      params.require(:webinar).permit(:title, :program, :date_from, :date_to, :web_link, :accreditated, :category_id, :user_id, speaker_ids: [])
     end
 end
