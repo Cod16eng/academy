@@ -15,6 +15,8 @@ class PagesController < ApplicationController
     @categories = Category.all
     @category = Category.first
     @webinars = Webinar.paginate(page: params[:webinars_page], per_page: 8).order('date_from ASC')
+    @quadernis = Quaderni.paginate(page: params[:qadernis_page], per_page: 8).order('release_date ASC')
+
   end
 
   def notizie

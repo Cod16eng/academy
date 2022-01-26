@@ -1,37 +1,40 @@
-<%= form_with(model: quaderni) do |form| %>
-  <% if quaderni.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(quaderni.errors.count, "error") %> prohibited this quaderni from being saved:</h2>
+<%= render 'shared/errors', obj: @quaderni %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-body">
+        <h3 class="card-title text-center"><%= @quaderni.new_record? ? "Add quaderno" : "Edit quaderno" %></h3>
+        <%= form_with(model: quaderni) do |form| %>
 
-      <ul>
-        <% quaderni.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+          <div class="form-group">
+            <%= form.label :title %>
+            <%= form.text_field :title, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= form.label :release_date %>
+            <%= form.date_field :release_date, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= form.label :speaker %>
+            <%= form.collection_select( :speaker_id, Speaker.all, :id, :speaker_name, {:prompt => "Please Select"}, {:class => 'form-control'}) %>
+          </div>
+
+          <div class="custom-file">
+            <%= form.label :file_doc, "Document",class:"custom-file-label" %>
+            <%= form.file_field :file_doc, class:"custom-file-input" %>
+          </div>
+
+          <div class="clearfix"><br /></div>
+
+          <div class="row justify-content-center">
+            <%= form.button(@quaderni.new_record? ? 'Create quaderno <i class="fas fa-paper-plane"></i>'.html_safe : 'Update quaderno <i class="fas fa-paper-plane"></i>'.html_safe, class: 'btn btn-primary') %>
+          </div>
         <% end %>
-      </ul>
+        </div>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
   </div>
-
-  <div class="field">
-    <%= form.label :release_date %>
-    <%= form.text_field :release_date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :speaker_id %>
-    <%= form.text_field :speaker_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :file_doc %>
-    <%= form.text_field :file_doc %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

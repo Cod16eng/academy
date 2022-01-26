@@ -105,7 +105,34 @@
             <h4 class="text-center">Quaderni – 2022</h4><br>
               <div class="clear-fix"><br></div>
                 <div class="row ">
+                  <table class="table table-hover"">
+                    <thead class="">
+                      <tr class=" text-center">
+                        <th class="bg-light ">Titolo</th>
+                        <th class="bg-light" style='width: 145px;'>Relatore</th>
+                        <th class="bg-light" style='width: 140px;'>Date</th>
+                        <th class="bg-light" style='width: 100px;'><i class="fas fa-file-download"></i></th>
+                      </tr>
+                    </thead>
 
+                    <tbody>
+                      <% @quadernis.each do |quaderno| %>
+                        <tr>
+                          <td class="align-middle"><%= quaderno.title %></td>
+                          <td><% quaderno.speakers.each do |speaker| %>
+                              <%= link_to speaker.speaker_name, speaker_path(speaker), class:'text-decoration-none'  %><br>
+                              <% end %></td>
+                          <td class="text-center align-middle"><%= quaderno.release_date.strftime('%e - %b - %Y') %><br>
+
+                                  </td>
+                          <td class="text-center align-middle">
+                            <%= link_to "Scarica", quaderno.file_doc_url, class:"btn btn-primary btn-sm"  %>
+                            
+                        </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+                    <%= will_paginate(@quadernis, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center d-flex') %>
                 </div>
             </div>
             <div class="tab-pane fade <%= "active show" if params[:tab] == 'v-pills-archivio' %>" id="v-pills-archivio"

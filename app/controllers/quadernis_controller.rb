@@ -65,6 +65,6 @@ class QuadernisController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def quaderni_params
-      params.require(:quaderni).permit(:title, :release_date, :speaker_id, :file_doc)
+      params.require(:quaderni).permit(:title, :release_date, :file_doc, speaker_ids: [])
     end
 end

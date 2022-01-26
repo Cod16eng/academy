@@ -1,6 +1,12 @@
-<h1>Editing Quaderni</h1>
-
 <%= render 'form', quaderni: @quaderni %>
 
-<%= link_to 'Show', @quaderni %> |
-<%= link_to 'Back', quadernis_path %>
+<div class="clear-fix"><br></div>
+
+<div class="row">
+  <div class="col-md-6 d-flex justify-content-center">
+    <%= link_to 'Back', quadernis_path, class:"btn btn-outline-secondary" %>
+  </div>
+  <div class="col-md-6 d-flex justify-content-center">
+    <%= link_to 'View', @quaderni, class:"btn btn-outline-primary" %>
+  </div>
+</div>
