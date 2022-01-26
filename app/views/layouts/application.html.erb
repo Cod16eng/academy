@@ -7,22 +7,25 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
+
   </head>
 
-  <body><%= render "layouts/navbar" %>
+  <body>
+     <%= render "layouts/navbar" %>
 
+     <% if current_page?(root_path) %>
+       <%= render "layouts/carousel" %>
+     <% end %>
 
-   <% if current_page?(root_path) %>
-     <%= render "layouts/carousel" %>
-   <% end %>
-   <% unless  current_page?(root_path) %>
-     <div class="page-title">
-       <div class="container">
-       <p><%=  @page_title || page_name %>  - Ascheri Academy</p>
+     <% unless  current_page?(root_path) %>
+
+       <div class="page-title">
+         <div class="container">
+         <p><%=  @page_title || page_name %>  - Ascheri Academy</p>
+         </div>
        </div>
-     </div>
    <% end %>
+   
    <div class="container main">
 
      <%= flash_messages %>

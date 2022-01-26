@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: 
+  release_date: 
+  speaker_id: 
+  file_doc: MyString
+
+two:
+  title: 
+  release_date: 
+  speaker_id: 
+  file_doc: MyString

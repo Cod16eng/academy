@@ -33,6 +33,22 @@ Rails.application.configure do
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = 'http://assets.example.com'
+  # Do not fallback to assets pipeline if a precompiled asset is missed.
+  config.action_mailer.default_url_options = {host: "ascheri-academy.herokuapp.com"}
+
+  config.action_mailer.raise_delivery_errors = true
+
+  # Change mail delvery to either :smtp, :sendmail, :file, :test
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  address: "server1.ascheri.tools",
+  port: 587,
+  domain: "ascheri.academy",
+  authentication: "plain",
+  enable_starttls_auto: true,
+  user_name: 'academy.web@ascheri.academy',
+  password: 'Gidia1234'
+  }
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache

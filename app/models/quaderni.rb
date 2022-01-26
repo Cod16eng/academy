@@ -1,0 +1,2 @@
+class Quaderni < ApplicationRecord
+end

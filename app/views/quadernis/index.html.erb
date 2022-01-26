@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Quadernis</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Release date</th>
+      <th>Speaker</th>
+      <th>File doc</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @quadernis.each do |quaderni| %>
+      <tr>
+        <td><%= quaderni.title %></td>
+        <td><%= quaderni.release_date %></td>
+        <td><%= quaderni.speaker_id %></td>
+        <td><%= quaderni.file_doc %></td>
+        <td><%= link_to 'Show', quaderni %></td>
+        <td><%= link_to 'Edit', edit_quaderni_path(quaderni) %></td>
+        <td><%= link_to 'Destroy', quaderni, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Quaderni', new_quaderni_path %>

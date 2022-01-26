@@ -1,5 +1,5 @@
 class PageMailer < ApplicationMailer
-  default from: 'info@ascheri.academy'
+  default from: 'academy.web@ascheri.academy'
   def lavora_con_noi(nome_completo, professione, email, telefono, citta_e_cap, mat_special, prop_webinar)
     @nome_completo = nome_completo
     @professione = professione

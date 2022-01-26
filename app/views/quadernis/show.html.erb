@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @quaderni.title %>
+</p>
+
+<p>
+  <strong>Release date:</strong>
+  <%= @quaderni.release_date %>
+</p>
+
+<p>
+  <strong>Speaker:</strong>
+  <%= @quaderni.speaker_id %>
+</p>
+
+<p>
+  <strong>File doc:</strong>
+  <%= @quaderni.file_doc %>
+</p>
+
+<%= link_to 'Edit', edit_quaderni_path(@quaderni) %> |
+<%= link_to 'Back', quadernis_path %>
